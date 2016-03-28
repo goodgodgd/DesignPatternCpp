@@ -69,6 +69,12 @@
     <ClCompile Include="8_도형편집기.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="8_도형편집기2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Day1Review.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ioacademy.h">

@@ -1,6 +1,8 @@
 # Custom for Visual studio
 **/Debug/
 *.sdf
+*.opensdf
+*.suo
 
 
 # Windows image file caches

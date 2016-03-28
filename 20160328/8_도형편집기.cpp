@@ -8,7 +8,7 @@
 // 4. 부모의 함수 중 자식이 재정의 하는 모든 함수는 반드시 가상 함수 이어야 한다.
 //		"가상함수가 아닌 함수는 재정의 하지 말라" - "Effective C++" 격언
 
-// http://d.pr/n/1ftN8
+// http://d.pr/n/19pmN
 
 #include <vector>
 #include <iostream>
