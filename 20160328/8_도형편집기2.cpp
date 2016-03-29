@@ -12,7 +12,7 @@
 //		한다는 이론 => (OCP 원칙)
 // 6. 다형성은 OCP를 만족합니다. (다형성을 잘 구현하면 기존 코드를 수정할 필요가 없다.)
 
-// 7. Prototype Pattern: 기존에 존재하는 객체를 복사해서 새로운 객체를 만드는 패턴
+// 7. Prototype Pattern: 기존에 존재하는 객체를 복사해서 새로운 객체를 만드는 패턴 (복사 생성자 사용)
 //		핵심: "다형성"을 이용한 객체의 복사
 //		java: Cloneable,	C#: ICloneable,	ObjC: Copyable
 //		java: clone();,		C#: Clone();	ObjC: copy()
@@ -105,7 +105,7 @@ int main()
 			int k;
 			cin >> k;
 			// 문제: v[k] - Rect인가? Circle인가?
-			v.push_back[v[k]->clone()];
+			v.push_back(v[k]->clone());
 		}
 
 		else if (cmd == 9)
