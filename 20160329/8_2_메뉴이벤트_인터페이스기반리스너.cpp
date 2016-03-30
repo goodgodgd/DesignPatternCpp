@@ -30,7 +30,7 @@ public:
 		// 메뉴가 선택된 사실을 다시 외부에 알려야 한다.
 		// "객체가 외부로 이벤트를 발생한다." 라고 표현
 		if (pListener)
-			pListener->onCommand(id);
+			pListener->onCommand(id);	// 객체를 구별하는 ID를 보내야 한다.
 	}
 };
 
@@ -57,7 +57,7 @@ int main()
 {
 	Dialog dialog;
 
-	MenuItem m1(11);
+	MenuItem m1(11);	// 객체 ID 지정
 	MenuItem m2(12);
 	m1.setListener(&dialog);
 	m2.setListener(&dialog);
