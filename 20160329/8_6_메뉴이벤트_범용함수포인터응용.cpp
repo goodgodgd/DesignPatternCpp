@@ -10,7 +10,7 @@ struct ICommand
 
 class FunctionCommand : public ICommand
 {
-	typedef void(*HANDLER)();	// ÇÔ¼ö Æ÷ÀÎÅÍ
+	typedef void(*HANDLER)();	// í•¨ìˆ˜ í¬ì¸í„°
 	HANDLER handler;
 
 public:
@@ -19,11 +19,11 @@ public:
 	void excute() { handler(); }
 };
 
-// ¸ğµç Å¬·¡½ºÀÇ ¸â¹ö ÇÔ¼öÀÇ ÁÖ¼Ò¸¦ ´ãÀ» ¼ö ÀÖ´Â Å¬·¡½º¸¦ ¼³°èÇØº¸ÀÚ.
+// ëª¨ë“  í´ë˜ìŠ¤ì˜ ë©¤ë²„ í•¨ìˆ˜ì˜ ì£¼ì†Œë¥¼ ë‹´ì„ ìˆ˜ ìˆëŠ” í´ë˜ìŠ¤ë¥¼ ì„¤ê³„í•´ë³´ì.
 template <typename T>
 class MemberCommand : public ICommand
 {
-	typedef void(T::*HANDLER)();	// ¸â¹ö ÇÔ¼ö Æ÷ÀÎÅÍ
+	typedef void(T::*HANDLER)();	// ë©¤ë²„ í•¨ìˆ˜ í¬ì¸í„°
 	HANDLER handler;
 	T* object;
 public:
@@ -32,23 +32,15 @@ public:
 	void excute() { (object->*handler)(); }
 };
 
-class Dialog
-{
-public:
-	void close() { cout << "Dialog close" << endl; }
-};
-
-void foo() { cout << "foo" << endl; }
-
-// 4. Å¬·¡½º ÅÛÇÃ¸´Àº ¾Ï½ÃÀû Ãß·ĞÀÌ ºÒ°¡´ÉÇÏ±â ¶§¹®¿¡ Ç×»ó º¹ÀâÇØ º¸ÀÔ´Ï´Ù.
-//		¾Ï½ÃÀû Ãß·ĞÀÌ °¡´ÉÇÑ ÇÔ¼ö ÅÛÇÃ¸´À¸·Î ÇïÆÛ¸¦ Á¦°øÇÕ´Ï´Ù.
+// 4. í´ë˜ìŠ¤ í…œí”Œë¦¿ì€ ì•”ì‹œì  ì¶”ë¡ ì´ ë¶ˆê°€ëŠ¥í•˜ê¸° ë•Œë¬¸ì— í•­ìƒ ë³µì¡í•´ ë³´ì…ë‹ˆë‹¤.
+//		ì•”ì‹œì  ì¶”ë¡ ì´ ê°€ëŠ¥í•œ í•¨ìˆ˜ í…œí”Œë¦¿ìœ¼ë¡œ í—¬í¼ë¥¼ ì œê³µí•©ë‹ˆë‹¤.
 template <typename T>
 MemberCommand<T>* cmd(void(T::*f)(), T* o)
 {
 	return new MemberCommand<T>(f, o);
 }
 
-// 5. ¶óÀÌºê·¯¸®ÀÇ ÀÏ°ü¼ºÀ» À§ÇØ¼­ FunctionCommand¸¦ ¸¸µå´Â cmdµµ Á¦°øÇÕ´Ï´Ù.
+// 5. ë¼ì´ë¸ŒëŸ¬ë¦¬ì˜ ì¼ê´€ì„±ì„ ìœ„í•´ì„œ FunctionCommandë¥¼ ë§Œë“œëŠ” cmdë„ ì œê³µí•©ë‹ˆë‹¤.
 FunctionCommand* cmd(void(*f)())
 {
 	return new FunctionCommand(f);
@@ -69,14 +61,22 @@ public:
 	}
 };
 
+class Dialog
+{
+public:
+	void close() { cout << "Dialog close" << endl; }
+};
+
+void foo() { cout << "foo" << endl; }
+
 int main()
 {
 	Dialog dialog;
 
 	MenuItem m;
-	m.setHandler(cmd(&Dialog::close, &dialog));
+	m.setHandler(cmd(&Dialog::close, &dialog));	// cmdê°€ Dialog::closeë¥¼ ICommand ë¼ëŠ” ë²”ìš©í•¨ìˆ˜í¬ì¸í„°ë¡œ ë³€í™˜
 	m.command();
 
-	m.setHandler(cmd(&foo));
+	m.setHandler(cmd(&foo));	// cmdê°€ fooë¥¼ ICommand ë¼ëŠ” ë²”ìš© í•¨ìˆ˜ í¬ì¸í„°ë¡œ ë³€í™˜
 	m.command();
 }
