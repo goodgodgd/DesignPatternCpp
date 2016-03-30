@@ -1,9 +1,9 @@
-// 1_¸Ş¼¼Áö¸Ê
-// MFC, wsWidget µî¿¡¼­ ¸¹ÀÌ ¾²ÀÌ°í ÀÕ´Ù.
-// : °¡»ó ÇÔ¼ö Å×ÀÌºíÀÇ ¿À¹öÇìµå¸¦ ÁÙÀÌ±â À§ÇØ »ç¿ëÀÚ°¡ Á÷Á¢ Å×ÀÌºíÀ» »ı¼ºÇÏµµ·Ï ¸¸µå´Â ±â¼úÀÔ´Ï´Ù.
-//	¸Ş½ÃÁö ¸ÊÀº ¹®¹ıÀûÀ¸·Î º¹ÀâÇÏ´Ù. »ç¿ëÀÚ°¡ ÆíÇÏ°Ô ¾²·Á¸é ÄÚµå¸¦ ¸¸µé¾îÁÖÀÚ
-//	-> º¹ÀâÇÑ ÄÚµå¸¦ ¸ÅÅ©·Î·Î Á¦°øÇÕ´Ï´Ù.
-//		¸ÅÅ©·Î´Â ÄÄÆÄÀÏ·¯ Àü¿¡ ÀüÃ³¸®·Î ÄÚµå ¸¸µé¾î
+// 1_ë©”ì„¸ì§€ë§µ
+// MFC, wsWidget ë“±ì—ì„œ ë§ì´ ì“°ì´ê³  ì‡ë‹¤.
+// : ê°€ìƒ í•¨ìˆ˜ í…Œì´ë¸”ì˜ ì˜¤ë²„í—¤ë“œë¥¼ ì¤„ì´ê¸° ìœ„í•´ ì‚¬ìš©ìê°€ ì§ì ‘ í…Œì´ë¸”ì„ ìƒì„±í•˜ë„ë¡ ë§Œë“œëŠ” ê¸°ìˆ ì…ë‹ˆë‹¤.
+//	ë©”ì‹œì§€ ë§µì€ ë¬¸ë²•ì ìœ¼ë¡œ ë³µì¡í•˜ë‹¤. ì‚¬ìš©ìê°€ í¸í•˜ê²Œ ì“°ë ¤ë©´ ì½”ë“œë¥¼ ë§Œë“¤ì–´ì£¼ì
+//	-> ë³µì¡í•œ ì½”ë“œë¥¼ ë§¤í¬ë¡œë¡œ ì œê³µí•©ë‹ˆë‹¤.
+//		ë§¤í¬ë¡œëŠ” ì»´íŒŒì¼ëŸ¬ ì „ì— ì „ì²˜ë¦¬ë¡œ ì½”ë“œ ë§Œë“¤ì–´
 
 #include "ioacademy.h"
 using namespace ioacademy;
@@ -16,8 +16,8 @@ class Window;
 
 struct AFX_MSG
 {
-	int message;				// ¸Ş¼¼Áö ¹øÈ£
-	void(Window::*handler)();	// Ã³¸®ÇÒ ÇÔ¼öÀÇ ÁÖ¼Ò
+	int message;				// ë©”ì„¸ì§€ ë²ˆí˜¸
+	void(Window::*handler)();	// ì²˜ë¦¬í•  í•¨ìˆ˜ì˜ ì£¼ì†Œ
 };
 
 class Window
@@ -25,29 +25,29 @@ class Window
 	static map<int, Window*> this_map;
 public:
 
-	// ÀÌÁ¦ ¸ğµç ÀÚ½Ä Å¬·¡½º´Â ÀÚ½ÅÀÌ Ã³¸®ÇÏ°íÀÚ ÇÏ´Â ÀÌº¥Æ®¿Í ÀÌº¥Æ® ÇÚµé·¯¸¦ ¸®ÅÏÇØ¾ß ÇÑ´Ù.
-	virtual AFX_MSG* GetMessageMap() { return 0; }	// ÀÏ´Ü ºÎ¸ğ´Â Ã³¸®ÇÒ ÀÌº¥Æ®°¡ ¾ø´Ù°í ¸®ÅÏ 0
+	// ì´ì œ ëª¨ë“  ìì‹ í´ë˜ìŠ¤ëŠ” ìì‹ ì´ ì²˜ë¦¬í•˜ê³ ì í•˜ëŠ” ì´ë²¤íŠ¸ì™€ ì´ë²¤íŠ¸ í•¸ë“¤ëŸ¬ë¥¼ ë¦¬í„´í•´ì•¼ í•œë‹¤.
+	virtual AFX_MSG* GetMessageMap() { return 0; }	// ì¼ë‹¨ ë¶€ëª¨ëŠ” ì²˜ë¦¬í•  ì´ë²¤íŠ¸ê°€ ì—†ë‹¤ê³  ë¦¬í„´ 0
 
 	void create()
 	{
-		// À©µµ¿ì ÀÌº¥Æ® ÇÚµé·¯ µî·Ï
+		// ìœˆë„ìš° ì´ë²¤íŠ¸ í•¸ë“¤ëŸ¬ ë“±ë¡
 		int handle = IoMakeWindow(foo);
 		this_map[handle] = this;
 	}
 
-	// ÀÌ¹ø ¿¹Á¦ÀÇ ÇÙ½ÉÀº ¾Æ·¡ ÇÔ¼öÀÔ´Ï´Ù. - ÀÌº¥Æ® Ã³¸®±â
+	// ì´ë²ˆ ì˜ˆì œì˜ í•µì‹¬ì€ ì•„ë˜ í•¨ìˆ˜ì…ë‹ˆë‹¤. - ì´ë²¤íŠ¸ ì²˜ë¦¬ê¸°
 	static int foo(int handle, int msg, int param1, int param2)
 	{
 		Window* self = this_map[handle];
 
 		if (self == 0) return 0;
 
-		// 1. ¹è¿­À» ¾ò¾î¿Â´Ù.
+		// 1. ë°°ì—´ì„ ì–»ì–´ì˜¨ë‹¤.
 		AFX_MSG* msgArray = self->GetMessageMap();
-		if (msgArray == 0)	// Ã³¸®ÇÒ ¸Ş½ÃÁö°¡ ¾ø´Â °æ¿ì
+		if (msgArray == 0)	// ì²˜ë¦¬í•  ë©”ì‹œì§€ê°€ ì—†ëŠ” ê²½ìš°
 			return 0;
 
-		// 2. ¹è¿­¿¡ ÇöÀç ¸Ş¼¼Áö°¡ ÀÖ´ÂÁö ¿©ºÎ¸¦ È®ÀÎÇÏ°í µî·ÏµÈ ÇÚµé·¯¸¦ È£ÃâÇÑ´Ù.
+		// 2. ë°°ì—´ì— í˜„ì¬ ë©”ì„¸ì§€ê°€ ìˆëŠ”ì§€ ì—¬ë¶€ë¥¼ í™•ì¸í•˜ê³  ë“±ë¡ëœ í•¸ë“¤ëŸ¬ë¥¼ í˜¸ì¶œí•œë‹¤.
 		for (; msgArray->message != 0; msgArray++)
 			if (msgArray->message == msg)
 			{
@@ -74,41 +74,41 @@ public:
 
 	virtual AFX_MSG* GetMessageMap()
 	{
-		// MyWindow::onLButtonDown À» ¾²¸é ÀÚ½ÅÀÇ ÇÔ¼ö Æ÷ÀÎÅÍ°¡ ¾Æ´Ï±â ¶§¹®¿¡ ¾µ¼ö ¾ø´Ù.
+		// MyWindow::onLButtonDown ì„ ì“°ë©´ ìì‹ ì˜ í•¨ìˆ˜ í¬ì¸í„°ê°€ ì•„ë‹ˆê¸° ë•Œë¬¸ì— ì“¸ìˆ˜ ì—†ë‹¤.
 		typedef void(Window::*HANDLER)();
-		// ¿©±â¿¡ ÇÊ¿äÇÑ ÀÌº¥Æ®µé¸¸ ¿¬°á½ÃÄÑÁÖ¸é µÈ´Ù. ¸ğµç ÀÌº¥Æ®¿¡ ´ëÇÑ °¡»óÇÔ¼ö ¸¸µéÁö ¾Ê¾Æµµ µÈ´Ù.
-		// ¸Å¹ø ¶È°°Àº msgMapÀ» ¸¸µéÁö ¾Ê±â À§ÇØ static ¼±¾ğ
+		// ì—¬ê¸°ì— í•„ìš”í•œ ì´ë²¤íŠ¸ë“¤ë§Œ ì—°ê²°ì‹œì¼œì£¼ë©´ ëœë‹¤. ëª¨ë“  ì´ë²¤íŠ¸ì— ëŒ€í•œ ê°€ìƒí•¨ìˆ˜ ë§Œë“¤ì§€ ì•Šì•„ë„ ëœë‹¤.
+		// ë§¤ë²ˆ ë˜‘ê°™ì€ msgMapì„ ë§Œë“¤ì§€ ì•Šê¸° ìœ„í•´ static ì„ ì–¸
 		static AFX_MSG msgMap[] = {
 			{ WM_LBUTTONDOWN, static_cast<HANDLER>(&MyWindow::onLButtonDown) },
 			{ WM_KEYDOWN, static_cast<HANDLER>(&MyWindow::onKeyDown) },
 			{ 0, 0 }
 		};
-		// 0,0 À¸·Î ¹è¿­ÀÇ ³¡ Ç¥½Ã
+		// 0,0 ìœ¼ë¡œ ë°°ì—´ì˜ ë í‘œì‹œ
 		return msgMap;
 	}
 };
 #endif
 
 //----------
-// GetMessageMap()À» »ı¼ºÇÏ´Â ¸ÅÅ©·ÎÀÔ´Ï´Ù.
-// À§ÀÇ MyWindow ¸¦ ¸ÅÅ©·Î·Î ±¸Çö
+// GetMessageMap()ì„ ìƒì„±í•˜ëŠ” ë§¤í¬ë¡œì…ë‹ˆë‹¤.
+// ìœ„ì˜ MyWindow ë¥¼ ë§¤í¬ë¡œë¡œ êµ¬í˜„
 
-// Çì´õ¿¡¼­ GetMessageMap() ÇÔ¼ö¼±¾ğ
+// í—¤ë”ì—ì„œ GetMessageMap() í•¨ìˆ˜ì„ ì–¸
 #define DECLARE_MESSAGE_MAP()                   \
   virtual AFX_MSG* GetMessageMap();
 
-// ¼Ò½º¿¡¼­ ÇÔ¼ö ½ÃÀÛºÎ¿Í ¹è¿­ ¼±¾ğ
+// ì†ŒìŠ¤ì—ì„œ í•¨ìˆ˜ ì‹œì‘ë¶€ì™€ ë°°ì—´ ì„ ì–¸
 #define BEGIN_MESSAGE_MAP(classname)           \
   AFX_MSG* classname::GetMessageMap()           \
   {                                             \
     typedef void(Window::*HANDLER)();           \
     static AFX_MSG msgMap[] = {
 
-// ¹è¿­¿¡ ¸Ş½ÃÁö¿Í ÇÔ¼ö Æ÷ÀÎÅÍ ½Ö Ãß°¡
+// ë°°ì—´ì— ë©”ì‹œì§€ì™€ í•¨ìˆ˜ í¬ì¸í„° ìŒ ì¶”ê°€
 #define ADD_MAP(message, handler)               \
   { message, static_cast<HANDLER>(handler) },
 
-// ¹è¿­ Á¾·á Ç¥½Ã ¹× ÇÔ¼ö Á¾·á
+// ë°°ì—´ ì¢…ë£Œ í‘œì‹œ ë° í•¨ìˆ˜ ì¢…ë£Œ
 #define END_MESSAGE_MAP()                       \
       { 0, 0 }                                  \
   };                                            \
@@ -135,17 +135,11 @@ BEGIN_MESSAGE_MAP(MyWindow)
 	ADD_MAP(WM_KEYDOWN, &MyWindow::onKeyDown)
 END_MESSAGE_MAP()
 
-/*
-BEGIN_MESSAGE_MAP(MyWindow)
-	ADD_MAP(WM_LBUTTONDOWN &MyWindow::onLButtonDown)
-	ADD_MAP(WM_KEYDOWN, &MyWindow::onKeyDown)
-END_MESSAGE_MAP()
-*/
 
 int main()
 {
 	MyWindow w;
-	w.create();       // ÀÌ ¼ø°£ À©µµ¿ì°¡ ¸¸µé¾îÁ®¾ß ÇÕ´Ï´Ù.
-	// ¿ŞÂÊ ¹öÆ°À» ´©¸£¸é "LBUTTON" ÀÌ¶ó°í Ãâ·ÂµÇ¾î¾ß ÇÕ´Ï´Ù.
+	w.create();       // ì´ ìˆœê°„ ìœˆë„ìš°ê°€ ë§Œë“¤ì–´ì ¸ì•¼ í•©ë‹ˆë‹¤.
+	// ì™¼ìª½ ë²„íŠ¼ì„ ëˆ„ë¥´ë©´ "LBUTTON" ì´ë¼ê³  ì¶œë ¥ë˜ì–´ì•¼ í•©ë‹ˆë‹¤.
 	IoProcessMessage();
 }
