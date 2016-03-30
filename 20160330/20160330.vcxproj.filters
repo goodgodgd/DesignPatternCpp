@@ -60,6 +60,18 @@
     <ClCompile Include="7_반복자.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="7_반복자2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="7_반복자3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="7_반복자4.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="8_방문자.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ioacademy.h">

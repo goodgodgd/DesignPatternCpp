@@ -19,7 +19,8 @@ class slist_iterator
 {
 	node<T>* current;
 public:
-	// 모든 컨테이너 설계자는 자신의 반복자 이름을 미리 약손된 형태로 외부에 알려야 한다.
+	// 규칙2. (C++ document)
+	// 모든 컨테이너 설계자는 자신의 반복자 이름을 미리 약속된 형태로 외부에 알려야 한다.
 	slist_iterator(node<T>* p = 0) : current(p) {}
 
 	// ==, != 를 제공한다.
@@ -39,7 +40,8 @@ public:
 
 
 
-// 모든 컨테이너의 설계자는 자신의 처음과 끝 다음을 가르키는 반복자를 꺼낼 수 잇는 연산을 제공해야 한다.
+// 규칙1. (C++ document)
+// 모든 컨테이너의 설계자는 자신의 처음과 끝 다음을 가르키는 반복자를 꺼낼 수 있는 연산을 제공해야 한다.
 // begin() / end()
 
 template <typename T>
@@ -49,13 +51,14 @@ class slist
 public:
 	typedef slist_iterator<T> iterator;
 
-	slist() : head(0) {}
+	slist() : head(0) {}	// -> list의 맨 마지막은 '0'이된다. -> end()에서 0 리턴
+
 	void push_front(const T& a) { head = new node<T>(a, head); }
 	T& front() { return head->data; }
 
 	// 반복자를 꺼내는 함수
 	slist_iterator<T> begin() { return slist_iterator<T>(head); }
-	slist_iterator<T> end() { return slist_iterator<T>(0); }
+	slist_iterator<T> end() { return slist_iterator<T>(0); }	// 왜 0? 생성자 참조
 
 };
 
