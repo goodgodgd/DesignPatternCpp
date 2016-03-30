@@ -10,27 +10,27 @@ struct node
 	node(const T& a, node* n) : data(a), next(n) {}
 };
 
-// slistÀÇ ¹İº¹ÀÚ¸¦ ¼³°èÇØº¾½Ã´Ù.
-// - ¹İº¹ÀÚ: ÄÁÅ×ÀÌ³ÊÀÇ ±¸°£À» Ç¥ÇöÇÏ´Â Å¸ÀÔ (ÀÌ¸é¼­ ½º¸¶Æ® Æ÷ÀÎÅÍ)
-// iterator´Â vector³ª list¸¦ ¹è¿­Ã³·³ ¾²°Ô ÇØÁÖ´Â °æ°è¸é ¿ªÇÒÀ» ÇØÁØ´Ù.
+// slistì˜ ë°˜ë³µìë¥¼ ì„¤ê³„í•´ë´…ì‹œë‹¤.
+// - ë°˜ë³µì: ì»¨í…Œì´ë„ˆì˜ êµ¬ê°„ì„ í‘œí˜„í•˜ëŠ” íƒ€ì… (ì´ë©´ì„œ ìŠ¤ë§ˆíŠ¸ í¬ì¸í„°)
+// iteratorëŠ” vectorë‚˜ listë¥¼ ë°°ì—´ì²˜ëŸ¼ ì“°ê²Œ í•´ì£¼ëŠ” ê²½ê³„ë©´ ì—­í• ì„ í•´ì¤€ë‹¤.
 
 template <typename T>
 class slist_iterator
 {
 	node<T>* current;
 public:
-	// ±ÔÄ¢2. (C++ document)
-	// ¸ğµç ÄÁÅ×ÀÌ³Ê ¼³°èÀÚ´Â ÀÚ½ÅÀÇ ¹İº¹ÀÚ ÀÌ¸§À» ¹Ì¸® ¾à¼ÓµÈ ÇüÅÂ·Î ¿ÜºÎ¿¡ ¾Ë·Á¾ß ÇÑ´Ù.
+	// ê·œì¹™2. (C++ document)
+	// ëª¨ë“  ì»¨í…Œì´ë„ˆ ì„¤ê³„ìëŠ” ìì‹ ì˜ ë°˜ë³µì ì´ë¦„ì„ ë¯¸ë¦¬ ì•½ì†ëœ í˜•íƒœë¡œ ì™¸ë¶€ì— ì•Œë ¤ì•¼ í•œë‹¤.
 	slist_iterator(node<T>* p = 0) : current(p) {}
 
-	// ==, != ¸¦ Á¦°øÇÑ´Ù.
+	// ==, != ë¥¼ ì œê³µí•œë‹¤.
 	inline bool operator==(const slist_iterator& t)	{ return t.current == current; }
 	inline bool operator!=(const slist_iterator& t)	{ return t.current != current; }
 
-	// °ªÀ» ¾ò´Â ¿¬»ê
+	// ê°’ì„ ì–»ëŠ” ì—°ì‚°
 	inline T& operator*() { return current->data; }
 
-	// ÀÌµ¿ÇÏ´Â ¿¬»ê
+	// ì´ë™í•˜ëŠ” ì—°ì‚°
 	inline slist_iterator& operator++()
 	{
 		current = current->next;
@@ -40,8 +40,8 @@ public:
 
 
 
-// ±ÔÄ¢1. (C++ document)
-// ¸ğµç ÄÁÅ×ÀÌ³ÊÀÇ ¼³°èÀÚ´Â ÀÚ½ÅÀÇ Ã³À½°ú ³¡ ´ÙÀ½À» °¡¸£Å°´Â ¹İº¹ÀÚ¸¦ ²¨³¾ ¼ö ÀÖ´Â ¿¬»êÀ» Á¦°øÇØ¾ß ÇÑ´Ù.
+// ê·œì¹™1. (C++ document)
+// ëª¨ë“  ì»¨í…Œì´ë„ˆì˜ ì„¤ê³„ìëŠ” ìì‹ ì˜ ì²˜ìŒê³¼ ë ë‹¤ìŒì„ ê°€ë¥´í‚¤ëŠ” ë°˜ë³µìë¥¼ êº¼ë‚¼ ìˆ˜ ìˆëŠ” ì—°ì‚°ì„ ì œê³µí•´ì•¼ í•œë‹¤.
 // begin() / end()
 
 template <typename T>
@@ -51,14 +51,14 @@ class slist
 public:
 	typedef slist_iterator<T> iterator;
 
-	slist() : head(0) {}	// -> listÀÇ ¸Ç ¸¶Áö¸·Àº '0'ÀÌµÈ´Ù. -> end()¿¡¼­ 0 ¸®ÅÏ
+	slist() : head(0) {}	// -> listì˜ ë§¨ ë§ˆì§€ë§‰ì€ '0'ì´ëœë‹¤. -> end()ì—ì„œ 0 ë¦¬í„´
 
 	void push_front(const T& a) { head = new node<T>(a, head); }
 	T& front() { return head->data; }
 
-	// ¹İº¹ÀÚ¸¦ ²¨³»´Â ÇÔ¼ö
+	// ë°˜ë³µìë¥¼ êº¼ë‚´ëŠ” í•¨ìˆ˜
 	slist_iterator<T> begin() { return slist_iterator<T>(head); }
-	slist_iterator<T> end() { return slist_iterator<T>(0); }	// ¿Ö 0? »ı¼ºÀÚ ÂüÁ¶
+	slist_iterator<T> end() { return slist_iterator<T>(0); }	// ì™œ 0? ìƒì„±ì ì°¸ì¡°
 
 };
 
@@ -69,7 +69,7 @@ T1 xfind(T1 first, T1 last, T2 value)
 		++first;
 
 	//	return first == last ? 0 : first;
-	return first;	// first == last ÀÌ¸é ¿¡·¯´Ù´Â ¾à¼Ó
+	return first;	// first == last ì´ë©´ ì—ëŸ¬ë‹¤ëŠ” ì•½ì†
 }
 
 int main()
