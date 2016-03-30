@@ -2,6 +2,7 @@
 // MFC, wsWidget 등에서 많이 쓰이고 잇다.
 // : 가상 함수 테이블의 오버헤드를 줄이기 위해 사용자가 직접 테이블을 생성하도록 만드는 기술입니다.
 //		-> 만들어야 할 가상 함수가 적다면 가상 함수를 쓰는 것이 낫다.
+// 비교: DesignPatternCpp/20160329/8_2_메뉴이벤트_인터페이스기반리스너.cpp
 
 #include "ioacademy.h"
 using namespace ioacademy;
