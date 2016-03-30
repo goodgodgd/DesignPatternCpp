@@ -1,12 +1,12 @@
 #include <iostream>
 using namespace std;
 
-// ÇÔ¼ö °´Ã¼´Â ÄÄÆÄÀÏ ½Ã°£¿¡ inlineÀÌ È®ÀÎµÇ¹Ç·Î inline ÃÖÀûÈ­°¡ °¡´ÉÇÏ´Ù
-// ÇÔ¼ö Æ÷ÀÎÅÍ´Â ÄÄÆÄÀÏ ½Ã°£¿¡ ¾Ë ¼ö ¾øÀ¸¹Ç·Î ÃÖÀûÈ­°¡ ¾ÈµÈ´Ù.
-// Á¤Ã¥¿¡ °ü·ÃµÈ ºÎºÐÀ» templateÀ¸·Î ÁöÁ¤ÇØÁÙ ¼ö ÀÖ´Ù. -> ÄÚµå°¡ ÄÄÆÄÀÏ ½Ã°£¿¡ ¸¸µé¾îÁø´Ù.
-// ÇÔ¼ö °´Ã¼¿¡¼­´Â inlineÀÌ °¡´ÉÇÏ¹Ç·Î ÇÔ¼ö Æ÷ÀÎÅÍ·Î ÀÎÇÑ ¼º´ÉÀúÇÏ¸¦ ¸·À» ¼ö ÀÖ´Ù.
-// C++¿¡¼­ ÇÔ¼ö °´Ã¼¸¦ Áö¿øÇÏ´Â ÀÌÀ¯
-// ÄÚµå ¸Þ¸ð¸®¸¦ °í·ÁÇÑ´Ù¸é ÇÔ¼ö Æ÷ÀÎÅÍ¸¦, ¼º´ÉÀ» »ý°¢ÇÑ´Ù¸é ÇÔ¼ö °´Ã¼¸¦ ¾²ÀÚ!
+// í•¨ìˆ˜ ê°ì²´ëŠ” ì»´íŒŒì¼ ì‹œê°„ì— inlineì´ í™•ì¸ë˜ë¯€ë¡œ inline ìµœì í™”ê°€ ê°€ëŠ¥í•˜ë‹¤
+// í•¨ìˆ˜ í¬ì¸í„°ëŠ” ì»´íŒŒì¼ ì‹œê°„ì— ì•Œ ìˆ˜ ì—†ìœ¼ë¯€ë¡œ ìµœì í™”ê°€ ì•ˆëœë‹¤.
+// ì •ì±…ì— ê´€ë ¨ëœ ë¶€ë¶„ì„ templateìœ¼ë¡œ ì§€ì •í•´ì¤„ ìˆ˜ ìžˆë‹¤. -> ì½”ë“œê°€ ì»´íŒŒì¼ ì‹œê°„ì— ë§Œë“¤ì–´ì§„ë‹¤.
+// í•¨ìˆ˜ ê°ì²´ì—ì„œëŠ” inlineì´ ê°€ëŠ¥í•˜ë¯€ë¡œ í•¨ìˆ˜ í¬ì¸í„°ë¡œ ì¸í•œ ì„±ëŠ¥ì €í•˜ë¥¼ ë§‰ì„ ìˆ˜ ìžˆë‹¤.
+// C++ì—ì„œ í•¨ìˆ˜ ê°ì²´ë¥¼ ì§€ì›í•˜ëŠ” ì´ìœ 
+// ì½”ë“œ ë©”ëª¨ë¦¬ë¥¼ ê³ ë ¤í•œë‹¤ë©´ í•¨ìˆ˜ í¬ì¸í„°ë¥¼, ì„±ëŠ¥ì„ ìƒê°í•œë‹¤ë©´ í•¨ìˆ˜ ê°ì²´ë¥¼ ì“°ìž!
 
 struct Less
 {
@@ -18,7 +18,7 @@ struct Greater
 	inline bool operator()(int a, int b) { return a < b; }
 };
 
-// ÀÌ°Íµµ °¡´ÉÇÏÁö¸¸ Á¤Ã¥À» ¹Ù²Ü ¼ö ¾ø´Ù.
+// ì´ê²ƒë„ ê°€ëŠ¥í•˜ì§€ë§Œ ì •ì±…ì„ ë°”ê¿€ ìˆ˜ ì—†ë‹¤.
 #if 0
 void sort(int* x, int n, Less cmp)
 {
