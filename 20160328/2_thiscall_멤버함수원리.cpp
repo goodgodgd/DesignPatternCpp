@@ -1,4 +1,4 @@
-// ¸ñÇ¥: °´Ã¼ÀÇ ÇÔ¼ö µ¿ÀÛ ¿ø¸® ÀÌÇØ
+// ëª©í‘œ: ê°ì²´ì˜ í•¨ìˆ˜ ë™ìž‘ ì›ë¦¬ ì´í•´
 // http://d.pr/n/1kzQ7
 
 #include <iostream>
@@ -19,20 +19,20 @@ public:
 	// static method, class method
 	static void foo(int a)	// function signature: void foo(int a)
 	{
-//		x = a;	// this->x = a; °¡ µÇ¾î¾ß ÇÏ´Â this°¡ ¾ø´Ù!
+//		x = a;	// this->x = a; ê°€ ë˜ì–´ì•¼ í•˜ëŠ” thisê°€ ì—†ë‹¤!
 	}
 };
 
 int main()
 {
 	Point p1, p2;
-	// p1ÀÇ ¸â¹ö ÇÔ¼öÀÎ °ÍÃ³·³ º¸ÀÌÁö¸¸ set ÇÔ¼ö´Â ¸ðµç °´Ã¼¿¡ °øÀ¯µÇ°í
-	// set(&p1, 10, 20) ÀÌ¶ó°í ÄÄÆÄÀÏ µÊ, °´Ã¼ ³»ºÎ¿¡¼­ ºÎ¸£´Â°Ô ¾Æ´Ï¶ó °´Ã¼ÀÇ ¸Þ¸ð¸®¸¦ ÇÔ¼ö ÀÎÀÚ·Î º¸³¿
+	// p1ì˜ ë©¤ë²„ í•¨ìˆ˜ì¸ ê²ƒì²˜ëŸ¼ ë³´ì´ì§€ë§Œ set í•¨ìˆ˜ëŠ” ëª¨ë“  ê°ì²´ì— ê³µìœ ë˜ê³ 
+	// set(&p1, 10, 20) ì´ë¼ê³  ì»´íŒŒì¼ ë¨, ê°ì²´ ë‚´ë¶€ì—ì„œ ë¶€ë¥´ëŠ”ê²Œ ì•„ë‹ˆë¼ ê°ì²´ì˜ ë©”ëª¨ë¦¬ë¥¼ í•¨ìˆ˜ ì¸ìžë¡œ ë³´ëƒ„
 	// push 20
 	// push 10
-	// mov ecx (&p1 Àü´Þ)
+	// mov ecx (&p1 ì „ë‹¬)
 	// call set
 	p1.set(10, 20);
 
-	Point::foo(10);	// Á¤Àû ¸â¹ö ÇÔ¼ö´Â °´Ã¼ ¾øÀÌ È£Ãâ °¡´ÉÇÏ´Ù. -> this°¡ Àü´ÞµÇÁö ¾Ê´Â´Ù.
+	Point::foo(10);	// ì •ì  ë©¤ë²„ í•¨ìˆ˜ëŠ” ê°ì²´ ì—†ì´ í˜¸ì¶œ ê°€ëŠ¥í•˜ë‹¤. -> thisê°€ ì „ë‹¬ë˜ì§€ ì•ŠëŠ”ë‹¤.
 }
