@@ -1,14 +1,14 @@
-// Æ÷ÇÔÀ» ÀÌ¿ëÇØ ºÎ¸ðÅ¬·¡½ºÀÇ ÀÎÅÍÆäÀÌ½º ¼±ÅÃÀûÀ¸·Î ¼ö¿ë
+// í¬í•¨ì„ ì´ìš©í•´ ë¶€ëª¨í´ëž˜ìŠ¤ì˜ ì¸í„°íŽ˜ì´ìŠ¤ ì„ íƒì ìœ¼ë¡œ ìˆ˜ìš©
 // http://d.pr/n/1lgo9
 
 #include <list>
 #include <iostream>
 using namespace std;
 
-// S/WÀÇ Àç»ç¿ëÀº "»ó¼Ó"°ú "Æ÷ÇÔ"ÀÌ ÀÖ´Ù.
-// »ó¼ÓÀº ¸ðµç ÀÎÅÍÆäÀÌ½º¸¦ ¿ÜºÎ·Î ³ëÃâÇÏ±â ¶§¹®¿¡ Æ÷ÇÔÀÌ ÁÁÀ» ¶§°¡ ¸¹´Ù.
-// »ç¿ëÀÚ°¡ Àß¸ø ¾²±â ¾î·Æ°Ô µÈ´Ù.
-// Æ÷ÇÔ¿¡¼­´Â Æ÷ÇÔÇÏ°íÀÚ ÇÏ´Â Å¬·¡½ºµµ ÁöÁ¤ °¡´ÉÇÏ´Ù.
+// S/Wì˜ ìž¬ì‚¬ìš©ì€ "ìƒì†"ê³¼ "í¬í•¨"ì´ ìžˆë‹¤.
+// ìƒì†ì€ ëª¨ë“  ì¸í„°íŽ˜ì´ìŠ¤ë¥¼ ì™¸ë¶€ë¡œ ë…¸ì¶œí•˜ê¸° ë•Œë¬¸ì— í¬í•¨ì´ ì¢‹ì„ ë•Œê°€ ë§Žë‹¤.
+// ì‚¬ìš©ìžê°€ ìž˜ëª» ì“°ê¸° ì–´ë µê²Œ ëœë‹¤.
+// í¬í•¨ì—ì„œëŠ” í¬í•¨í•˜ê³ ìž í•˜ëŠ” í´ëž˜ìŠ¤ë„ ì§€ì • ê°€ëŠ¥í•˜ë‹¤.
 
 #if 0
 template <typename T>
@@ -33,10 +33,10 @@ int main()
 
 #include <vector>
 #include <deque>
-// stackÀ» includeÇØ ½áµµ ¶È°°ÀÌ ÀÛµ¿
+// stackì„ includeí•´ ì¨ë„ ë˜‘ê°™ì´ ìž‘ë™
 //#include <stack>
 
-// stack adpater¶ó°í ºÎ¸¨´Ï´Ù.
+// stack adpaterë¼ê³  ë¶€ë¦…ë‹ˆë‹¤.
 template < typename T, typename C = deque<T> >
 class stack
 {
