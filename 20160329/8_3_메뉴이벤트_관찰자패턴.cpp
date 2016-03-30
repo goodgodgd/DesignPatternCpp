@@ -27,7 +27,7 @@ public:
 	{
 		// 등록된 모든 객체에게 알려준다. -> 관찰자 패턴
 		for (int i = 0; i< v.size(); i++)
-			v[i]->onCommand(id);
+			v[i]->onCommand(id);	// 객체를 구별하는 ID를 보내야 한다.
 	}
 };
 
