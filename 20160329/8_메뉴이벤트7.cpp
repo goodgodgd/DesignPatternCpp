@@ -21,6 +21,7 @@ void koo(int a, int b, int c, int d)
 // 이미 표준에 범용적 함수 포인터가 있습니다. C++11
 // TR1 - 2008년도에 추가되었습니다.
 // function, bind 에 대한 정확한 용법과 document를 보고 싶다면 boost를 참고하라.
+// boost에는 많은 좋은 기능들이 있지만 이러한 배경지식이 없는 사람과 협업을 하면 혼자 일하게 된다.
 
 #if 0
 int main()
