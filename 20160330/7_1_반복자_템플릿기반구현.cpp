@@ -57,9 +57,8 @@ public:
 	T& front() { return head->data; }
 
 	// 반복자를 꺼내는 함수
-	slist_iterator<T> begin() { return slist_iterator<T>(head); }
-	slist_iterator<T> end() { return slist_iterator<T>(0); }	// 왜 0? 생성자 참조
-
+	slist_iterator<T> begin() { return slist_iterator<T>(head); }	// slist_iterator 객체를 생성하고 그 객체를 리턴
+	slist_iterator<T> end() { return slist_iterator<T>(0); }		// 왜 0? 생성자 참조
 };
 
 template <typename T1, typename T2>
