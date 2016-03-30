@@ -9,8 +9,8 @@ class List
 public:
 	void push_front(const T& a)
 	{
-		// ÀÌ·¸°Ô Â¥¸é ½Ì±Û ½º·¹µå »ç¿ëÀÚ´Â ¾öÃ»³­ ¼º´É ÀúÇÏ ¹ß»ý
-		// µ¿±âÈ­ Á¤Ã¥µµ ºÐ¸®µÇ¼­ »ç¿ëÀÚ°¡ ¼±ÅÃÇÒ ¼ö ÀÖ°Ô ÇØ¾ß ÇÑ´Ù.
+		// ì´ë ‡ê²Œ ì§œë©´ ì‹±ê¸€ ìŠ¤ë ˆë“œ ì‚¬ìš©ìžëŠ” ì—„ì²­ë‚œ ì„±ëŠ¥ ì €í•˜ ë°œìƒ
+		// ë™ê¸°í™” ì •ì±…ë„ ë¶„ë¦¬ë˜ì„œ ì‚¬ìš©ìžê°€ ì„ íƒí•  ìˆ˜ ìžˆê²Œ í•´ì•¼ í•œë‹¤.
 		// mutex lock
 		// ...
 		// mutex unlock
@@ -18,11 +18,11 @@ public:
 };
 #endif
 
-// µ¿±âÈ­ ¿©ºÎ¸¦ ÀÎÅÍÆäÀÌ½º ±â¹ÝÀÇ ´Ù¸¥ Å¬·¡½º·Î ºÐ¸®ÇÏÀÚ.
-// ÀåÁ¡: ½ÇÇà ½Ã°£¿¡ Á¤Ã¥À» ±³Ã¼ÇÒ ¼ö ÀÖ´Ù. - setSync
-// ´ÜÁ¡: °¡»ó ÇÔ¼ö ±â¹ÝÀÌ¹Ç·Î ´À¸®´Ù.
-//		½Ì±Û ½º·¹µå¿¡¼­ lock, unlock ¿¡¼­ ¾Æ¹«°Íµµ ÇÏÁö ¾Ê¾Æµµ ÇÔ¼ö ÄÝ ÀÚÃ¼°¡ ºÎÇÏ°¡ ÀÖ±â ¶§¹®¿¡ Á÷Á¢ ±¸ÇöÀ» ³Ö´Â °Íº¸´Ù´Â ´À¸®´Ù.
-// ±×·±µ¥ ³»ºÎÀûÀÎ Á¤Ã¥ (½Ì±Û ½º·¹µå, ¸ÖÆ¼ ½º·¹µå)°¡ °íÁ¤ÀûÀÌ¸é ÀÎÅÍÆäÀÌ½º¸¦ ¾µ ÇÊ¿ä°¡ ¾ø´Ù.
+// ë™ê¸°í™” ì—¬ë¶€ë¥¼ ì¸í„°íŽ˜ì´ìŠ¤ ê¸°ë°˜ì˜ ë‹¤ë¥¸ í´ëž˜ìŠ¤ë¡œ ë¶„ë¦¬í•˜ìž.
+// ìž¥ì : ì‹¤í–‰ ì‹œê°„ì— ì •ì±…ì„ êµì²´í•  ìˆ˜ ìžˆë‹¤. - setSync
+// ë‹¨ì : ê°€ìƒ í•¨ìˆ˜ ê¸°ë°˜ì´ë¯€ë¡œ ëŠë¦¬ë‹¤.
+//		ì‹±ê¸€ ìŠ¤ë ˆë“œì—ì„œ lock, unlock ì—ì„œ ì•„ë¬´ê²ƒë„ í•˜ì§€ ì•Šì•„ë„ í•¨ìˆ˜ ì½œ ìžì²´ê°€ ë¶€í•˜ê°€ ìžˆê¸° ë•Œë¬¸ì— ì§ì ‘ êµ¬í˜„ì„ ë„£ëŠ” ê²ƒë³´ë‹¤ëŠ” ëŠë¦¬ë‹¤.
+// ê·¸ëŸ°ë° ë‚´ë¶€ì ì¸ ì •ì±… (ì‹±ê¸€ ìŠ¤ë ˆë“œ, ë©€í‹° ìŠ¤ë ˆë“œ)ê°€ ê³ ì •ì ì´ë©´ ì¸í„°íŽ˜ì´ìŠ¤ë¥¼ ì“¸ í•„ìš”ê°€ ì—†ë‹¤.
 
 struct ISync
 {
@@ -37,7 +37,7 @@ class List
 	ISync* pSync;
 public:
 	List() : pSync(0) {}
-	// µ¿±âÈ­ Á¤Ã¥ ¼±ÅÃ
+	// ë™ê¸°í™” ì •ì±… ì„ íƒ
 	void setSync(ISync* p) { pSync = p; }
 
 	void push_front(const T& a)
@@ -63,7 +63,7 @@ public:
 	virtual void unlock() {}
 };
 
-List<int> st; // Àü¿ª º¯¼ö: ¸ÖÆ¼ ½º·¹µå¿¡¼­ µ¿±âÈ­ ¹®Á¦ ÁÖÀÇ
+List<int> st; // ì „ì—­ ë³€ìˆ˜: ë©€í‹° ìŠ¤ë ˆë“œì—ì„œ ë™ê¸°í™” ë¬¸ì œ ì£¼ì˜
 
 int main()
 {
