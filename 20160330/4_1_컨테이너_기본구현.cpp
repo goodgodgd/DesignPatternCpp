@@ -1,7 +1,7 @@
-// ÄÁÅ×ÀÌ³Ê¸¦ ¼³°èÇÏ´Â ±â¼ú
-// - ´ÜÀÏ ¿¬°á ¸®½ºÆ® ±â¹ÝÀÇ ÄÁÅ×ÀÌ³Ê
+// ì»¨í…Œì´ë„ˆë¥¼ ì„¤ê³„í•˜ëŠ” ê¸°ìˆ 
+// - ë‹¨ì¼ ì—°ê²° ë¦¬ìŠ¤íŠ¸ ê¸°ë°˜ì˜ ì»¨í…Œì´ë„ˆ
 
-// ´Ù¾çÇÑ Å¸ÀÔÀ» ´ã±â À§ÇØ¼­´Â templateÀ» ¾µ¼öµµ ÀÖ°í object pointer¸¦ ¾µ ¼öµµ ÀÖ´Ù.(°°Àº ºÎ¸ð »ó¼Ó)
+// ë‹¤ì–‘í•œ íƒ€ìž…ì„ ë‹´ê¸° ìœ„í•´ì„œëŠ” templateì„ ì“¸ìˆ˜ë„ ìžˆê³  object pointerë¥¼ ì“¸ ìˆ˜ë„ ìžˆë‹¤.(ê°™ì€ ë¶€ëª¨ ìƒì†)
 
 #include <iostream>
 using namespace std;
@@ -10,7 +10,7 @@ struct node
 {
 	int data;
 	node* next;
-	// ³»ºÎ»ý¼ºÀÚ¸¦ ÅëÇØ ±â´É ÀÀÁý
+	// ë‚´ë¶€ìƒì„±ìžë¥¼ í†µí•´ ê¸°ëŠ¥ ì‘ì§‘
 	node(int a, node* n) : data(a), next(n) {}
 };
 
@@ -20,8 +20,8 @@ class slist
 public:
 	slist() : head(0) {}
 
-	// ³ëµåÀÌ »ý¼ºÀÚ¸¦ Àß È°¿ëÇÑ ÄÚµåÀÔ´Ï´Ù.
-	// »ý¼ºÀÚ ÅëÇØ ³ëµå »ý¼º ·ÎÁ÷À» Ä¸½¶È­
+	// ë…¸ë“œì´ ìƒì„±ìžë¥¼ ìž˜ í™œìš©í•œ ì½”ë“œìž…ë‹ˆë‹¤.
+	// ìƒì„±ìž í†µí•´ ë…¸ë“œ ìƒì„± ë¡œì§ì„ ìº¡ìŠí™”
 	void push_front(int a) { head = new node(a, head); }
 	int front() { return head->data; }
 };
