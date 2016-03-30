@@ -1,5 +1,5 @@
-// Window¸¦ Ä¸½¶È­ ÇØº¾½Ã´Ù.
-// Window¸¦ »ç¿ëÇÑ´Ù´Â °ÍÀº event-driven method ±¸Çö, Å¬¸¯, Å°º¸µå¿¡ ´ëÇÑ message handler ¿¬°á
+// Windowë¥¼ ìº¡ìŠí™” í•´ë´…ì‹œë‹¤.
+// Windowë¥¼ ì‚¬ìš©í•œë‹¤ëŠ” ê²ƒì€ event-driven method êµ¬í˜„, í´ë¦­, í‚¤ë³´ë“œì— ëŒ€í•œ message handler ì—°ê²°
 
 // http://d.pr/n/mDpc
 
@@ -9,7 +9,7 @@ using namespace std;
 #include "ioacademy.h"
 using namespace ioacademy;
 
-// ±âº»ÀûÀÎ message handler¸¦ »ç¿ëÇÏ±â À§ÇØ ÀÎÀÚµµ ¸¹°í ¾Ë¾Æ¾ß ÇÒ °ÍÀÌ ¸¹´Ù.
+// ê¸°ë³¸ì ì¸ message handlerë¥¼ ì‚¬ìš©í•˜ê¸° ìœ„í•´ ì¸ìë„ ë§ê³  ì•Œì•„ì•¼ í•  ê²ƒì´ ë§ë‹¤.
 #if 0
 int foo(int handle, int msg, int param1, int param2)
 {
@@ -23,14 +23,14 @@ int foo(int handle, int msg, int param1, int param2)
 		break;
 
 	}
-	// ¿¡·¯ ¹ß»ıÇÏÁö ¾ÊÀ½
+	// ì—ëŸ¬ ë°œìƒí•˜ì§€ ì•ŠìŒ
 	return 0;
 }
 
 int main()
 {
-	int h1 = IoMakeWindow(foo);	// window ¸¸µé°í ÀÌº¥Æ® ÇÚµé·¯ ÁöÁ¤
-	IoProcessMessage();	// message loop µ¹·ÁÁÜ
+	int h1 = IoMakeWindow(foo);	// window ë§Œë“¤ê³  ì´ë²¤íŠ¸ í•¸ë“¤ëŸ¬ ì§€ì •
+	IoProcessMessage();	// message loop ëŒë ¤ì¤Œ
 }
 #endif
 
@@ -42,7 +42,7 @@ class Window
 public:
 	void create()
 	{
-		// ÀÏ¹İ ¸â¹ö ÇÔ¼ö ¸ø ¹Ş´Â´Ù.
+		// ì¼ë°˜ ë©¤ë²„ í•¨ìˆ˜ ëª» ë°›ëŠ”ë‹¤.
 		int handle = IoMakeWindow(foo);
 		this_map[handle] = this;
 	}
@@ -50,8 +50,8 @@ public:
 	virtual void onLButtonDown() {}
 	virtual void onKeyDown() {}
 
-	// static ÀÌ¾î¾ß¸¸ IoMakeWindow¿¡ Àü´ŞµÉ ¼ö ÀÖ´Ù.
-	// ±×·³ this¸¦ ¹ŞÀ» ¼ö ÀÖ°Ô mapÀ» ½á¾ß ÇÑ´Ù.
+	// static ì´ì–´ì•¼ë§Œ IoMakeWindowì— ì „ë‹¬ë  ìˆ˜ ìˆë‹¤.
+	// ê·¸ëŸ¼ thisë¥¼ ë°›ì„ ìˆ˜ ìˆê²Œ mapì„ ì¨ì•¼ í•œë‹¤.
 	static int foo(int handle, int msg, int param1, int param2)
 	{
 		Window* self = this_map[handle];
@@ -65,18 +65,18 @@ public:
 			break;
 
 		}
-		// ¿¡·¯ ¹ß»ıÇÏÁö ¾ÊÀ½
+		// ì—ëŸ¬ ë°œìƒí•˜ì§€ ì•ŠìŒ
 		return 0;
 	}
 };
 
-// staticÀº ¿ÜºÎ ¼±¾ğ ÇÊ¿ä
+// staticì€ ì™¸ë¶€ ì„ ì–¸ í•„ìš”
 map<int, Window*> Window::this_map;
 
 class MyWindow : public Window
 {
 public:
-	// Window ¸Ş½ÃÁö ÇÚµé·¯ Áß¿¡¼­ ÀÚ½ÅÀÌ ÇÊ¿äÇÑ ºÎºĞÀÇ °¡»óÇÔ¼ö¸¸ ±¸Çö
+	// Window ë©”ì‹œì§€ í•¸ë“¤ëŸ¬ ì¤‘ì—ì„œ ìì‹ ì´ í•„ìš”í•œ ë¶€ë¶„ì˜ ê°€ìƒí•¨ìˆ˜ë§Œ êµ¬í˜„
 	virtual void onLButtonDown() {
 		cout << "LButton" << endl;
 	}
@@ -89,7 +89,7 @@ public:
 int main()
 {
 	MyWindow w;
-	w.create();		// ÀÌ ¼ø°£ À©µµ¿ì°¡ ¸¸µé¾îÁ®¾ß ÇÕ´Ï´Ù.
-					// ¿ŞÂÊ ¹öÆ°À» ´©¸£¸é "LButton" ÀÌ¶ó°í Ãâ·ÂµÇ¾î¾ß ÇÕ´Ï´Ù.
+	w.create();		// ì´ ìˆœê°„ ìœˆë„ìš°ê°€ ë§Œë“¤ì–´ì ¸ì•¼ í•©ë‹ˆë‹¤.
+					// ì™¼ìª½ ë²„íŠ¼ì„ ëˆ„ë¥´ë©´ "LButton" ì´ë¼ê³  ì¶œë ¥ë˜ì–´ì•¼ í•©ë‹ˆë‹¤.
 	IoProcessMessage();
 }
