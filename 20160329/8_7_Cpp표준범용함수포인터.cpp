@@ -18,10 +18,10 @@ void koo(int a, int b, int c, int d)
 }
 
 #include <functional>
-// ÀÌ¹Ì Ç¥ÁØ¿¡ ¹ü¿ëÀû ÇÔ¼ö Æ÷ÀÎÅÍ°¡ ÀÖ½À´Ï´Ù. C++11
-// TR1 - 2008³âµµ¿¡ Ãß°¡µÇ¾ú½À´Ï´Ù.
-// function, bind ¿¡ ´ëÇÑ Á¤È®ÇÑ ¿ë¹ý°ú document¸¦ º¸°í ½Í´Ù¸é boost¸¦ Âü°íÇÏ¶ó.
-// boost¿¡´Â ¸¹Àº ÁÁÀº ±â´ÉµéÀÌ ÀÖÁö¸¸ ÀÌ·¯ÇÑ ¹è°æÁö½ÄÀÌ ¾ø´Â »ç¶÷°ú Çù¾÷À» ÇÏ¸é È¥ÀÚ ÀÏÇÏ°Ô µÈ´Ù.
+// ì´ë¯¸ í‘œì¤€ì— ë²”ìš©ì  í•¨ìˆ˜ í¬ì¸í„°ê°€ ìžˆìŠµë‹ˆë‹¤. C++11
+// TR1 - 2008ë…„ë„ì— ì¶”ê°€ë˜ì—ˆìŠµë‹ˆë‹¤.
+// function, bind ì— ëŒ€í•œ ì •í™•í•œ ìš©ë²•ê³¼ documentë¥¼ ë³´ê³  ì‹¶ë‹¤ë©´ boostë¥¼ ì°¸ê³ í•˜ë¼.
+// boostì—ëŠ” ë§Žì€ ì¢‹ì€ ê¸°ëŠ¥ë“¤ì´ ìžˆì§€ë§Œ ì´ëŸ¬í•œ ë°°ê²½ì§€ì‹ì´ ì—†ëŠ” ì‚¬ëžŒê³¼ í˜‘ì—…ì„ í•˜ë©´ í˜¼ìž ì¼í•˜ê²Œ ëœë‹¤.
 
 #if 0
 int main()
@@ -33,7 +33,7 @@ int main()
 	f = bind(&Dialog::close, &dialog);
 	f();
 
-	// °áÁ¤µÈ ÀÎÀÚµµ ÀÔ·Â °¡´É
+	// ê²°ì •ëœ ì¸ìžë„ ìž…ë ¥ ê°€ëŠ¥
 	f = bind(&goo, 10);
 	f();
 	f = bind(&hoo, 10, 20);
@@ -50,7 +50,7 @@ int main()
 	function<void(int)> f = &goo;
 	f(10);
 
-	f = bind(&hoo, 10, _1);	// µÎ¹øÂ° ÀÎÀÚ´Â Á÷Á¢ ÀÔ·ÂÇÏ´Âµ¥ ±×°ÍÀ» _1·Î Á¤ÀÇÇÑ´Ù.
+	f = bind(&hoo, 10, _1);	// ë‘ë²ˆì§¸ ì¸ìžëŠ” ì§ì ‘ ìž…ë ¥í•˜ëŠ”ë° ê·¸ê²ƒì„ _1ë¡œ ì •ì˜í•œë‹¤.
 	f(300);		// hoo(100, 300)
 
 	f = bind(&koo, 10, _1, 30, _1);
