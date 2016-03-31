@@ -5,6 +5,9 @@
 // main 인자에 따라 윈도우 스타일 달라짐
 // a.exe --style=GTK --style=XP
 
+
+
+
 #include <string>
 
 #if 0
@@ -76,6 +79,7 @@ public:
 
 int main(int argc, char* argv[])
 {
+	// 스타일을 선택할 수 있고 
 	IFactory* factory;
 	if (strcmp(argv[1], "--style=GTK"))
 	{

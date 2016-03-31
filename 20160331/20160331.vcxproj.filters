@@ -66,6 +66,9 @@
     <ClCompile Include="7_1_추상팩토리.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="8_정리.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="IObserver.h">
