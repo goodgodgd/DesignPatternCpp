@@ -10,11 +10,9 @@
 //	=> 모든 컨테이너에 대해서 원하는 작업을 수행할 수 있다.
 // C++ 표준에는 방문자가 없고 java 스타일 구현해보자!
 
-#include <ppl.h>	// 마이크로 소프트에서 제공하는 병렬함수
-// for_each 대신 parallel_for_each를 쓰면 된다.
-
-// 명령적 프로그래밍: 루프 돌려서 직접 구현
-// 선언적 프로그래밍: query와 비슷하게 비슷한 다른 이름으로 간편하게 제공????
+// 명령적 프로그래밍: 알고리즘을 정의
+// 선언적 프로그래밍: 문제를 정의, 어떤 대상 설명
+//					SQL에서 query할 때 어떤 알고리즘으로 찾으라고 하지 않아. HTML은 웹화면을 기술할뿐 어떻게 구현하라고는 하지 않아.
 
 
 #include <iostream>
@@ -33,25 +31,9 @@ struct IAcceptor
 {
 	virtual void accept(IVisitor<T>* visitor) = 0;
 	virtual ~IAcceptor() {}
-}
-
-// 컨테이너를 바꾸지 않고도 방문자를 통해 기능을 추가할 수 있다.
-// 모든 요소를 두배로 하는 방문자
-template < typename T >
-struct TwiceVisitor : public IVisitor < T >
-{
-public:
-	virtual void visit(T& a) { a *= 2; }
 };
 
-// 모든 요소를 보여주는 방문자
-template < typename T >
-struct ShowVisitor : public IVisitor < T >
-{
-public:
-	virtual void visit(T& a) { cout << a << endl; }
-};
-
+//-------------------------------------------------------
 
 template <typename T>
 struct node
@@ -60,7 +42,6 @@ struct node
 	node* next;
 	node(const T& a, node* n) : data(a), next(n) {}
 };
-
 
 template <typename T>
 class slist : public IAcceptor<T>
@@ -83,6 +64,25 @@ public:
 	T& front() { return head->data; }
 };
 
+
+// 컨테이너를 바꾸지 않고도 방문자를 통해 기능을 추가할 수 있다.
+// 모든 요소를 두배로 하는 방문자
+template < typename T >
+struct TwiceVisitor : public IVisitor < T >
+{
+public:
+	virtual void visit(T& a) { a *= 2; }
+};
+
+// 모든 요소를 보여주는 방문자
+template < typename T >
+struct ShowVisitor : public IVisitor < T >
+{
+public:
+	virtual void visit(T& a) { cout << a << endl; }
+};
+
+#if 0
 int main()
 {
 	slist<int> s;
@@ -93,10 +93,32 @@ int main()
 	TwiceVisitor<int> tv;
 	ShowVisitor<int> sv;
 
+	// visitor를 이용해 원하는 연산 수행
 	s.accept(&tv);
 	s.accept(&sv);
-
-	cout << s.front() << endl;
 }
+#endif
 
+#include <algorithm>	// for_each
+#include <list>
+#include <ppl.h>		// for_each 대신 parallel_for_each를 쓰면 된다.
+using namespace concurrency;
 
+int main()
+{
+	list<int> s;
+	s.push_front(10);
+	s.push_front(20);
+	s.push_front(30);
+
+	// 선언적 프로그래밍
+	// 람다함수를 이용한 병렬처리
+	auto tw = [](int& n) {
+		n *= 2;
+	};
+
+	parallel_for_each(s.begin(), s.end(), tw);
+	parallel_for_each(s.begin(), s.end(), [](int n) {
+		cout << n << endl;
+	});
+}
