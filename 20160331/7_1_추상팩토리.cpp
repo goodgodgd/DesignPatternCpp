@@ -68,6 +68,7 @@ class XPFactory : public IFactory
 public:
 	IButton* createButton() { return new XPButton; }
 	IEdit* createEdit() { return new XPEdit; }
+	// ...
 };
 
 class GTKFactory : public IFactory
@@ -75,6 +76,7 @@ class GTKFactory : public IFactory
 public:
 	IButton* createButton() { return new GTKButton; }
 	IEdit* createEdit() { return new GTKEdit; }
+	// ...
 };
 
 int main(int argc, char* argv[])
@@ -82,15 +84,8 @@ int main(int argc, char* argv[])
 	// 스타일을 선택할 수 있고 
 	IFactory* factory;
 	if (strcmp(argv[1], "--style=GTK"))
-	{
 		factory = new GTKFactory;
-	}
 	else if (strcmp(argv[1], "--style=XP"))
-	{
 		factory = new XPFactory;
-	}
-
-	// 윈도우를 그리는 코드에서 
-	//	p->draw();
 }
 

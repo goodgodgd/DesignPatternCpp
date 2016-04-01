@@ -79,10 +79,10 @@
     <ClCompile Include="1_1_관찰자.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="1_2_관찰자.cpp">
+    <ClCompile Include="1_2_관찰자_플러그인추가.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="2_1_통보센터.cpp">
+    <ClCompile Include="2_1_통보센터_중재자.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="3_1_책임의전가.cpp">
@@ -106,7 +106,7 @@
     <ClCompile Include="5_1_커맨드.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="5_2_커맨드_망함.cpp">
+    <ClCompile Include="5_2_커맨드.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="6_1_Flyweight.cpp">
