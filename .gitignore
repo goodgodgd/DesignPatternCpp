@@ -3,6 +3,9 @@
 *.sdf
 *.opensdf
 *.suo
+*.opendb
+*.vcxproj
+*.zip
 
 
 # Windows image file caches
